@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='2000' height='2000' preserveAspectRatio='none' viewBox='0 0 2000 2000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1031%26quot%3b)' fill='none'%3e%3crect width='2000' height='2000' x='0' y='0' fill='rgba(159%2c 134%2c 192%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c834.093C154.154%2c832.588%2c222.39%2c630.949%2c355.404%2c553.02C497.077%2c470.017%2c718.616%2c507.952%2c800.043%2c365.367C880.271%2c224.882%2c778.679%2c49.535%2c731.264%2c-105.14C690.259%2c-238.904%2c644.657%2c-374.269%2c543.638%2c-471.065C447.307%2c-563.369%2c315.696%2c-603.805%2c184.66%2c-628.894C62.987%2c-652.19%2c-60.629%2c-646.15%2c-178.94%2c-609.414C-295.922%2c-573.09%2c-409.001%2c-516.362%2c-485.599%2c-420.774C-560.748%2c-326.994%2c-570.062%2c-202.828%2c-598.348%2c-86.029C-629.791%2c43.808%2c-706.814%2c176.341%2c-660.556%2c301.666C-613.855%2c428.189%2c-464.897%2c475.368%2c-359.893%2c560.004C-240.063%2c656.591%2c-153.903%2c835.596%2c0%2c834.093' fill='%238c6eb4'%3e%3c/path%3e%3cpath d='M2000 2797.792C2160.09 2789.373 2317.948 2787.0789999999997 2465.407 2724.187 2633.6130000000003 2652.447 2818.01 2574.2799999999997 2903.311 2412.5280000000002 2989.728 2248.66 2949.917 2050.46 2916.831 1868.18 2884.737 1691.364 2839.633 1509.988 2715.844 1379.7179999999998 2594.503 1252.025 2415.204 1211.182 2245.994 1162.222 2077.422 1113.4470000000001 1903.344 1047.964 1734.495 1095.7730000000001 1565.0520000000001 1143.75 1447.385 1288.138 1331.864 1421.057 1216.188 1554.154 1104.2089999999998 1693.607 1065.4099999999999 1865.626 1024.775 2045.781 1029.613 2240.171 1109.559 2406.651 1188.817 2571.699 1334.4 2701.218 1502.032 2774.853 1657.311 2843.062 1830.634 2806.699 2000 2797.792' fill='%23b29ecc'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1031'%3e%3crect width='2000' height='2000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+p {
+    font-size: 20px;
+}
+
+.wrapper {
+    height: 400px;
+    width: 400px;
+    padding: 25px;
+    background: #e8d5fa93;
+    border-radius: 10px;
+
+}
+
+
+.cards, .card, .view, .details, p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards .card {
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out; 
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    background: #fff;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .front-view span {
+    font-size: 40px;
+    color: #CBB2FE;
+}
+
+.card .back-view {
+   transform: rotateY(-180deg);
+}
+
+.card .back-view img {
+    max-width: 45px;
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+    transform: rotateY(0);
+}
+
+.details {
+    width: 100%;
+    height: calc(100% / 4 - 30px);
+    margin-top: 15px;
+    padding: 0 20px;
+    border-radius: 7px;
+    background: #ebdff6;
+    justify-content: space-between;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.details p {
+    font-size: 18px;
+    height: 17px;
+    padding-right: 18px;
+}
+
+.details p span {
+    margin-left: 8px;
+}
+
+.details p b {
+    font-weight: 500;
+}
+
+.details button {
+    cursor: pointer;
+    font-size: 14px;
+    color: #bbadff;
+    border-radius: 4px;
+    padding: 4px 11px;
+    background: #fff;
+    border: 2px solid #bbadff;
+    transition: 0.3s ease;
+}
+
+.details button:hover {
+    color: #fff;
+    background: #bbadff;
+}
